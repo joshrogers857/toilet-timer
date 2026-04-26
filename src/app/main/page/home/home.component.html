@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header">
+        <h2>Please enter your timing interval:</h2>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="formGroup">
+            <label for="interval" class="form-label">Interval (minutes): </label>
+            <input id="interval" class="form-control" type="number" formControlName="interval" />
+        </form>
+        Elapsed: {{ elapsedTime$ | async }} seconds
+    </div>
+    <div class="card-footer d-flex justify-content-end gap-1">
+        <button class="btn btn-primary" [disabled]="timerInProgress" (click)="startTimer()">Start/Resume</button>
+        <button class="btn btn-secondary" [disabled]="!timerInProgress" (click)="pauseTimer()">Pause</button>
+        <button class="btn btn-danger" [disabled]="!timerInProgress" (click)="resetTimer()">Reset</button>
+    </div>
+</div>
